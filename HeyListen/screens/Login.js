@@ -1,5 +1,7 @@
 import React from 'react';
 import {View,Text,StyleSheet,TextInput,Image,Dimensions,Button} from 'react-native';
+import CrearCuenta from './CrearCuenta';
+import { NavigationEvents } from 'react-navigation';
 //import {Dimensions} from 'react-native';
 
 const { height, width } = Dimensions.get('window');
@@ -29,7 +31,7 @@ const styles = StyleSheet.create({
         backgroundColor:'#FFF', 
         borderWidth: 1, 
         width:width-25,
-        height: height/20,
+        height: height/15,
         padding:5,
         margin: 15,
         borderRadius:8,
@@ -42,9 +44,11 @@ const styles = StyleSheet.create({
 });
 
 export default class Login extends React.Component{
+
+    static navigationOptions = { title: 'Welcome', header: null };
+
     constructor(props) {
-        super(props);
-        this.state = { text: '' };
+        return super(props);
       }
     render(){
         return(
@@ -54,16 +58,16 @@ export default class Login extends React.Component{
                 <Text style={styles.splashText}>Hey, Listen!</Text>
             </View>
             <View style={{flex:1,alignItems:'center',margin:15,}}>
-            <Text style={{textAlign:'left',alignSelf: 'stretch',fontWeight:'bold',color:'#FFF'}}> Usuario:</Text>
-                <TextInput style={styles.inTextStyle}
-                onChangeText={(text) => this.setState({text})}
-                value={this.state.text} selectionColor={'#03A9F4'}/>
-            <Text style={{textAlign:'left',alignSelf: 'stretch',marginTop:10,fontWeight:'bold',color:'#FFF'}}>Contraseña:</Text>
+            <Text style={{textAlign:'left',alignSelf: 'stretch',fontWeight:'bold',color:'#FFF',fontSize: 20}}> Usuario:</Text>
+                <TextInput style={styles.inTextStyle} selectionColor={'#03A9F4'}/>
+            <Text style={{textAlign:'left',alignSelf: 'stretch',marginTop:10,fontWeight:'bold',color:'#FFF',fontSize:20}}>Contraseña:</Text>
             <TextInput style={styles.inTextStyle} selectionColor={'#03A9F4'}/>
             </View>
             <View style={{flex:1,margin:10}}>
-            <Text style={{alignSelf:'center',marginBottom:15,color:'#FFF'}}>Recuperar Contraseña</Text>
-            <Text style={{alignSelf:'center',padding:5,marginBottom:15,color:'#FFF'}}>Crear cuenta</Text>
+            <Text style={{alignSelf:'center',marginBottom:15,color:'#FFF',fontSize:20}}>Recuperar Contraseña</Text>
+            <Text style={{alignSelf:'center',padding:5,marginBottom:15,color:'#FFF',fontSize:20}} onPress={()=>{
+                this.props.navigation.navigate("Registrer");
+            }}>Crear cuenta</Text>
             <Button title="Iniciar" buttonStyle={{}} onPress={()=>{}}/>
             </View>
             </View>
