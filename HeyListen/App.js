@@ -2,6 +2,7 @@ import {createStackNavigator, createAppContainer} from 'react-navigation';
 import SplashScreen from './screens/SplashScreen';
 import CrearCuenta from './screens/CrearCuenta';
 import Login from './screens/Login';
+import UserHome from './screens/user/UserHome';
 
 
 const MainNavigator = createStackNavigator({
@@ -9,7 +10,8 @@ const MainNavigator = createStackNavigator({
   Login:{
     screen: Login
   },
-  Registrer: {screen: CrearCuenta}
+  Registrer: {screen: CrearCuenta},
+  UHome:{screen: UserHome}
 });
 
 const App = createAppContainer(MainNavigator);

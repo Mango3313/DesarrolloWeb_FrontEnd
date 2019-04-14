@@ -5,43 +5,42 @@ import { NavigationEvents } from 'react-navigation';
 //import {Dimensions} from 'react-native';
 
 const { height, width } = Dimensions.get('window');
-const styles = StyleSheet.create({
-    centerView:{
-        flex: 1,
-        //justifyContent: 'center',
-        //alignItems: 'center',
-        backgroundColor: '#3F51B5',
-        //borderWidth: 1,
-        //flexDirection: 'column',
-        //display:'table'
-    },
-    splashText:{
-        fontFamily:'Roboto',
-        fontSize:18 ,
-        color:'#FFF',
-        fontWeight:'bold',
-        //backgroundColor: '#FDD7E4',
-        alignSelf: 'stretch',
-        margin: 10,
-        textAlign: 'center',
-        //width: width,
-    },
-    inTextStyle:{
-        borderColor: '#03A9F4',
-        backgroundColor:'#FFF', 
-        borderWidth: 1, 
-        width:width-25,
-        height: height/15,
-        padding:5,
-        margin: 15,
-        borderRadius:8,
-        
-    },
-    sizeButton:{
-        width:width,
-        height: height,
-    }
-});
+    const styles = StyleSheet.create({
+        centerView:{
+            flex: 1,
+            //justifyContent: 'center',
+            //alignItems: 'center',
+            //borderWidth: 1,
+            //flexDirection: 'column',
+            //display:'table'
+        },
+        splashText:{
+            fontFamily:'Roboto',
+            fontSize:18 ,
+            
+            fontWeight:'bold',
+            //backgroundColor: '#FDD7E4',
+            alignSelf: 'stretch',
+            margin: 10,
+            textAlign: 'center',
+            //width: width,
+        },
+        inTextStyle:{
+            borderColor: '#03A9F4',
+            backgroundColor:'#FFF', 
+            borderWidth: 1, 
+            width:width-40,
+            height: height/15 - 5,
+            padding:5,
+            margin: 5,
+            borderRadius:8,
+            
+        },
+        sizeButton:{
+            width:width,
+            height: height,
+        }
+    });
 
 export default class Login extends React.Component{
 
@@ -57,18 +56,20 @@ export default class Login extends React.Component{
                 <Image source={require('../assets/gps.png')} style={{height:50,width:50,}}></Image>
                 <Text style={styles.splashText}>Hey, Listen!</Text>
             </View>
-            <View style={{flex:1,alignItems:'center',margin:15,}}>
-            <Text style={{textAlign:'left',alignSelf: 'stretch',fontWeight:'bold',color:'#FFF',fontSize: 20}}> Usuario:</Text>
-                <TextInput style={styles.inTextStyle} selectionColor={'#03A9F4'}/>
-            <Text style={{textAlign:'left',alignSelf: 'stretch',marginTop:10,fontWeight:'bold',color:'#FFF',fontSize:20}}>Contraseña:</Text>
-            <TextInput style={styles.inTextStyle} selectionColor={'#03A9F4'}/>
+            <View style={{flex:1,alignItems:'center',alignContent:'center',margin:15,borderRadius:5}}>
+            <Text style={{textAlign:'left',alignSelf: 'stretch',fontWeight:'bold',fontSize: 20}}> Usuario:</Text>
+            <TextInput style={styles.inTextStyle} selectionColor={'#4B3FB5'}/>
+            <Text style={{textAlign:'left',alignSelf: 'stretch',marginTop:10,fontWeight:'bold',fontSize:20}}>Contraseña:</Text>
+            <TextInput style={styles.inTextStyle} selectionColor={'#4B3FB5'}/>
             </View>
             <View style={{flex:1,margin:10}}>
-            <Text style={{alignSelf:'center',marginBottom:15,color:'#FFF',fontSize:20}}>Recuperar Contraseña</Text>
-            <Text style={{alignSelf:'center',padding:5,marginBottom:15,color:'#FFF',fontSize:20}} onPress={()=>{
+            <Text style={{alignSelf:'center',marginBottom:15,fontSize:20}}>Recuperar Contraseña</Text>
+            <Text style={{alignSelf:'center',padding:5,marginBottom:15,fontSize:20}} onPress={()=>{
                 this.props.navigation.navigate("Registrer");
             }}>Crear cuenta</Text>
-            <Button title="Iniciar" buttonStyle={{}} onPress={()=>{}}/>
+            <Button title="Iniciar" buttonStyle={{}} onPress={()=>{
+                this.props.navigation.replace("UHome");
+            }}/>
             </View>
             </View>
         );

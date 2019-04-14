@@ -32,7 +32,7 @@ export default class SplashScreen extends React.Component{
 
 componentDidMount() {
   setTimeout( () => {
-    this.props.navigation.replace("Login");
+    this.props.navigation.replace ("Login");
   },2500);
 }
     render(){
