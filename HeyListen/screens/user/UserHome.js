@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
 });
 
 export default class UserHome extends React.Component{
-    static navigationOptions = { title: 'Bienvenido'};
+    static navigationOptions = {tabBarLabel: 'Bien'};
     constructor(props){
         return super(props);
     }
@@ -36,6 +36,9 @@ export default class UserHome extends React.Component{
             }}>
                 <Polygon coordinates={facultad}/>
             </MapView>
+            <Button title="Llamar drawer" onPress={()=>{
+                this.props.navigation.openDrawer();
+            }}></Button>
             </View>
         );
     }
